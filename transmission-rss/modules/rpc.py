@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
-A minimal-ish RPC client for transmission that really does
-only what we want it to do, i.e. adding torrents.
+ A minimal-ish RPC client for transmission that really does
+ only what we want it to do, i.e. adding torrents.
 """
 
 import json
@@ -10,7 +10,7 @@ import requests
 
 class RPCClient(object):
     """
-    Provides a very minimal rpc client for transmission daemon
+     Provides a very minimal rpc client for transmission daemon
     """
     def __init__(self, host, port, path, credentials=None):
         self.host = host
@@ -22,8 +22,8 @@ class RPCClient(object):
         self.login()
     def send_command(self, method, arguments=None, tag=None):
         """
-        A very basic (if not awful) function to send commands to a daemon
-        Returns the response as JSON as compliant with the RPC spec.
+         A very basic (if not awful) function to send commands to a daemon
+         Returns the response as JSON as compliant with the RPC spec.
         """
         if arguments is None:
             arguments = {}
@@ -44,8 +44,8 @@ class RPCClient(object):
         return resp.json()
     def login(self):
         """
-        Sets up the session for our requests and saves basic auth information,
-        then gets the session id.
+         Sets up the session for our requests and saves basic auth information,
+         then gets the session id.
         """
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": "pyTransmissionRSS v0.0.1a"})
@@ -56,7 +56,7 @@ class RPCClient(object):
         self.get_session_id()
     def get_session_id(self):
         """
-        Makes an empty post to the RPC endpoint, store the valid session-id.
+         Makes an empty post to the RPC endpoint, store the valid session-id.
         """
         head = self.session.post(self.endpoint)
         self.session.headers.update({
@@ -64,10 +64,10 @@ class RPCClient(object):
         })
     def add_torrent(self, url, folder=None):
         """
-        Takes a URL and an optional remote folder and adds it to the
-        remote transmission daemon.
-        If successful, returns a tuple of (True, Torrent name)
-        Otherwise, returns a tuple of (False, Error string)
+         Takes a URL and an optional remote folder and adds it to the
+         remote transmission daemon.
+         If successful, returns a tuple of (True, Torrent name)
+         Otherwise, returns a tuple of (False, Error string)
         """
         arguments = {
             "filename": url

@@ -6,8 +6,8 @@ from yaml import dump, load
 
 class Config(object):
     """
-    Try to read from a local configuration file
-    If no readable files can be found, create one with a default configuration meant to be edited.
+     Try to read from a local configuration file
+     If no readable files can be found, create one with a default configuration meant to be edited.
     """
     def __init__(self):
         self.files_to_check = ['~/.config/transmission-rss.conf', '~/.transmission-rss.conf']
@@ -17,9 +17,9 @@ class Config(object):
         self.read()
     def read(self):
         """
-        Read from one of the specified configuration files, and attempt to
-        parse it as a config file. If no suitable file is found, create one
-        with some default information and return False. Otherwise, return True.
+         Read from one of the specified configuration files, and attempt to
+         parse it as a config file. If no suitable file is found, create one
+         with some default information and return False. Otherwise, return True.
         """
         if len([isfile(expanduser(conf_file)) for conf_file in self.files_to_check]) == 0:
             with open(expanduser('~/.transmission-rss.conf'), 'w') as infile:
@@ -69,7 +69,7 @@ class Config(object):
         return True
     def write(self):
         """
-        Write the current configuration stored in memory as human-readable YAML.
+         Write the current configuration stored in memory as human-readable YAML.
         """
         with open(self.__path__, 'w') as outfile:
             outfile.write(dump({
