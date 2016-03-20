@@ -1,3 +1,10 @@
 PyYAML
+astroid
 beautifulsoup4
+colorama
+lazy-object-proxy
+lxml
+pylint
 requests
+six
+wrapt

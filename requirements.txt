@@ -1,3 +1,10 @@
 PyYAML==3.11
+astroid==1.4.4
 beautifulsoup4==4.4.1
+colorama==0.3.7
+lazy-object-proxy==1.2.1
+lxml==3.6.0
+pylint==1.5.4
 requests==2.9.1
+six==1.10.0
+wrapt==1.10.6
