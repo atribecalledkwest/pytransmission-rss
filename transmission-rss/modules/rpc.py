@@ -32,7 +32,9 @@ class RPCClient(object):
             "arguments": arguments
         }
         if tag is not None and isinstance(tag, (int, float)):
-            data['tag'] = int(tag)
+            data.update({
+                'tag': int(tag)
+            })
         resp = self.session.post(self.endpoint, data=json.dumps(data))
         if resp.status_code == 401:
             raise Exception("Authentication failed")
