@@ -78,7 +78,9 @@ class RPCClient(object):
             })
         add_resp = self.send_command("torrent-add", arguments=arguments)
         if add_resp['result'] == 'success':
-            # Return name
+            # Is duplicate?
+            if 'torrent-duplicate' in add_resp['arguments']:
+                return False, add_resp['arguments']['torrent-duplicate']['name']
             return True, add_resp['arguments']['torrent-added']['name']
         else:
             # Return the error given
