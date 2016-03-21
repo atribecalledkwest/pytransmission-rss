@@ -42,7 +42,6 @@ class Feed(object):
         self.session.headers.update({
             "User-Agent": "pyTransmission-RSS"
         })
-        self.update()
     def update(self, force=False):
         """
          Grabs the RSS feed stored, updates the cache, and sets the timer.
